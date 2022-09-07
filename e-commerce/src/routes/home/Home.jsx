@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 import CategoryItem from "../../components/category-item/CategoryItem";
 
@@ -36,8 +37,11 @@ function Home() {
   });
 
   return (
-    <div className="categories-container">
-      <div className="categories-container">{categoryItem}</div>
+    <div>
+      <Outlet />
+      <div className="categories-container">
+        <div className="categories-container">{categoryItem}</div>
+      </div>
     </div>
   );
 }
