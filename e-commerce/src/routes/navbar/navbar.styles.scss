@@ -11,12 +11,13 @@
     padding: 25px;
   }
 
-  .nav-links-container {
+  .links-container {
     width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    // padding-top: 10px;
 
     .nav-link {
       padding: 10px 15px;
