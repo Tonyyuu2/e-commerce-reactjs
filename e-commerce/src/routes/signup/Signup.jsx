@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { createAuthUserWithEmailandPassword } from "../../utils/firebase.utils";
+import {
+  createAuthUserWithEmailandPassword,
+  createUserDocumentFromAuth,
+} from "../../utils/firebase.utils";
 
 function Signup() {
   const [state, setState] = useState({
@@ -17,12 +20,18 @@ function Signup() {
       return;
     }
     try {
-      const response = await createAuthUserWithEmailandPassword(state.email, state.password)
+      const response = await createAuthUserWithEmailandPassword(
+        state.email,
+        state.password
+      );
 
-      
-    }
-    catch (error) {
-      console.log('error message: ', error.message);
+      await createUserDocumentFromAuth(response.user, state.displayName);
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        alert("email already in use");
+      } else {
+        console.log("error message: ", error.message);
+      }
     }
   };
 
