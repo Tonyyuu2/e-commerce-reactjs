@@ -5,6 +5,8 @@ import {
 } from "../../utils/firebase.utils";
 import FormInput from "../../input-form/FormInput";
 
+import './signup.styles.scss'
+
 function Signup() {
   const [state, setState] = useState({
     displayName: "",
@@ -53,49 +55,52 @@ function Signup() {
   };
 
   return (
-    <div>
-      <h1>Use what you got...</h1>
+    <div className="sign-up-container">
+      <h2>No account?</h2>
+      <span>Use what you got...</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
-          inputOptions = {{
-            type:"text",
-            name:"displayName",
-            onChange:handleChange,
-            value:state.displayName,
+          inputOptions={{
+            type: "text",
+            name: "displayName",
+            onChange: handleChange,
+            value: state.displayName,
             required: true,
-
           }}
         />
 
         <FormInput
           label="email"
           inputOptions={{
-            type:"email",
-            name:"email",
-            value:state.email,
-            onChange:handleChange,
+            type: "email",
+            name: "email",
+            value: state.email,
+            onChange: handleChange,
             required: true,
-
           }}
         />
 
         <FormInput
           label="password"
-          type="password"
-          name="password"
-          value={state.password}
-          onChange={handleChange}
-          required
+          inputOptions={{
+            type: "password",
+            name: "password",
+            value: state.password,
+            onChange: handleChange,
+            required: true,
+          }}
         />
 
         <FormInput
           label="confirmPassword"
-          type="password"
-          name="confirmPassword"
-          value={state.confirmPassword}
-          onChange={handleChange}
-          required
+          inputOptions={{
+            type: "password",
+            name: "confirmPassword",
+            value: state.confirmPassword,
+            onChange: handleChange,
+            required: true,
+          }}
         />
 
         <button type="submit">Sign Up</button>
