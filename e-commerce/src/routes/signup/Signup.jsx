@@ -11,6 +11,7 @@ function Signup() {
     password: "",
     confirmPassword: "",
   });
+  const { displayName } = state
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,12 +21,13 @@ function Signup() {
       return;
     }
     try {
+      
       const response = await createAuthUserWithEmailandPassword(
         state.email,
         state.password
       );
 
-      await createUserDocumentFromAuth(response.user, state.displayName);
+      await createUserDocumentFromAuth(response.user,  { displayName });
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("email already in use");
