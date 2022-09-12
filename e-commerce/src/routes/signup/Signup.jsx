@@ -58,20 +58,26 @@ function Signup() {
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
-          type="text"
-          name="displayName"
-          onChange={handleChange}
-          value={state.displayName}
-          required
+          inputOptions = {{
+            type:"text",
+            name:"displayName",
+            onChange:handleChange,
+            value:state.displayName,
+            required: true,
+
+          }}
         />
 
         <FormInput
           label="email"
-          type="email"
-          name="email"
-          value={state.email}
-          onChange={handleChange}
-          required
+          inputOptions={{
+            type:"email",
+            name:"email",
+            value:state.email,
+            onChange:handleChange,
+            required: true,
+
+          }}
         />
 
         <FormInput
