@@ -4,8 +4,9 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase.utils";
 import FormInput from "../../input-form/FormInput";
+import Button from "../../components/button/Button";
 
-import './signup.styles.scss'
+import "./signup.styles.scss";
 
 function Signup() {
   const [state, setState] = useState({
@@ -102,8 +103,12 @@ function Signup() {
             required: true,
           }}
         />
-
-        <button type="submit">Sign Up</button>
+        <Button 
+          children={"SIGN UP"} 
+          type="submit" 
+          otherProps={{
+          }}
+        />
       </form>
     </div>
   );
