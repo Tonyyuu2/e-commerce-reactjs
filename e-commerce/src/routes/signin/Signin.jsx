@@ -29,7 +29,6 @@ function Signin() {
       resetState();
     } catch (error) {
     }
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,7 +62,7 @@ function Signin() {
           }}
         />
         <Button 
-          children={"SIGN UP"} 
+          children={"SIGN IN"} 
           type="submit" 
         />
       </form>
