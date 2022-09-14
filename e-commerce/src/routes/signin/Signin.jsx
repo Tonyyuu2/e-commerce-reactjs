@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import {
-  createAuthUserWithEmailandPassword,
   createUserDocumentFromAuth,
   signInWithGooglePopup,
+  signInAuthUserWithEmailandPassword,
 } from "../../utils/firebase.utils";
 import FormInput from "../../components/form-input/FormInput";
 import Button from "../../components/button/Button";
@@ -29,6 +29,26 @@ function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const response = await signInAuthUserWithEmailandPassword(
+        state.email,
+        state.password
+      );
+      resetState();
+      console.log("response :", response);
+    } catch (error) {
+      switch (error.code) {
+        case "auth/wrong-password":
+          alert("incorrect password or email");
+          break;
+        case "auth/user-not-found":
+          alert("no user associated with this email");
+          break;
+        default:
+          console.log(error);
+      }
+    }
   };
 
   const handleChange = (e) => {
@@ -62,8 +82,14 @@ function Signin() {
             required: true,
           }}
         />
-        <Button children={"SIGN IN"} type="submit" />
-        <Button children={"GOOGLE SIGN IN"} buttonType='google' onClick={signInWithGoogle}/>
+        <div className="buttons-container">
+          <Button children={"SIGN IN"} type="submit" onClick={handleSubmit} />
+          <Button
+            children={"GOOGLE SIGN IN"}
+            buttonType="google"
+            onClick={signInWithGoogle}
+          />
+        </div>
       </form>
     </div>
   );
