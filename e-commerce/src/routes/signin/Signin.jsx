@@ -16,6 +16,8 @@ function Signin() {
     password: "",
   });
 
+  const { setCurrentUser } = useContext(UserContext)
+
   const resetState = () => {
     setState({
       email: "",
@@ -36,6 +38,8 @@ function Signin() {
         state.email,
         state.password
       );
+      setCurrentUser(response.user)
+
       resetState();
       console.log("response :", response);
     } catch (error) {
