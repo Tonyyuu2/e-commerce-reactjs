@@ -83,10 +83,11 @@ function Signin() {
           }}
         />
         <div className="buttons-container">
-          <Button children={"SIGN IN"} type="submit" onClick={handleSubmit} />
+          <Button children={"SIGN IN"} type="button" onClick={handleSubmit} />
           <Button
             children={"GOOGLE SIGN IN"}
             buttonType="google"
+            type='button'
             onClick={signInWithGoogle}
           />
         </div>

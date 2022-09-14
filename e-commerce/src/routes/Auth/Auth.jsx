@@ -3,11 +3,12 @@ import React from "react";
 import SignupForm from '../signup/Signup'
 import SigninForm from "../signin/Signin";
 
+import './auth.styles.scss'
+
 function Auth() {
   
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="authentication-container">
       <SigninForm />
       <SignupForm />
     </div>
