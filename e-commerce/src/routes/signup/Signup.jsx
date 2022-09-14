@@ -106,8 +106,6 @@ function Signup() {
         <Button 
           children={"SIGN UP"} 
           type="submit" 
-          otherProps={{
-          }}
         />
       </form>
     </div>

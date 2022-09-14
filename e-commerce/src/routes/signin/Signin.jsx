@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   createAuthUserWithEmailandPassword,
   createUserDocumentFromAuth,
+  signInWithGooglePopup,
 } from "../../utils/firebase.utils";
 import FormInput from "../../components/form-input/FormInput";
 import Button from "../../components/button/Button";
@@ -21,14 +22,14 @@ function Signin() {
     });
   };
 
+  const signInWithGoogle = async () => {
+    const response = await signInWithGooglePopup();
+    await createUserDocumentFromAuth(response.user);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    }
-    try {
-      resetState();
-    } catch (error) {
-    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,14 +62,11 @@ function Signin() {
             required: true,
           }}
         />
-        <Button 
-          children={"SIGN IN"} 
-          type="submit" 
-        />
+        <Button children={"SIGN IN"} type="submit" />
+        <Button children={"GOOGLE SIGN IN"} buttonType='google' onClick={signInWithGoogle}/>
       </form>
     </div>
   );
 }
-
 
 export default Signin;
