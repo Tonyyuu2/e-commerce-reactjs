@@ -2,19 +2,14 @@ import React, { useContext } from "react";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { Outlet, Link } from "react-router-dom";
 import "./navbar.styles.scss";
-import { signOutUser } from "../../utils/firebase.utils";
+import { signOutUser } from "../../utils/firebase.utils"; 
 
 import { UserContext } from "../../context/user.context";
 
 function NavBar() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   console.log("currentUser :", currentUser);
 
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
-  
   return (
     <>
       <div className="navigation">
@@ -26,7 +21,7 @@ function NavBar() {
             Shop
           </Link>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutHandler}>
+            <span className="nav-link" onClick={signOutUser}>
               {`Hello ${currentUser.email}`} Logout
             </span>
           ) : (

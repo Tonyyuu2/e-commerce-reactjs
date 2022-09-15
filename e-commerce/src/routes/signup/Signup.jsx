@@ -1,11 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import {
   createAuthUserWithEmailandPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase.utils";
 import FormInput from "../../components/form-input/FormInput";
 import Button from "../../components/button/Button";
-import { UserContext } from "../../context/user.context";
 
 import "./signup.styles.scss";
 
@@ -18,7 +17,6 @@ function Signup() {
   });
   const { displayName } = state;
   
-  const { setCurrentUser } = useContext(UserContext)
 
   const resetState = () => {
     setState({
@@ -40,9 +38,7 @@ function Signup() {
       const response = await createAuthUserWithEmailandPassword(
         state.email,
         state.password
-      );
-
-      setCurrentUser(response.user)
+      ); 
 
       await createUserDocumentFromAuth(response.user, { displayName });
       resetState();
