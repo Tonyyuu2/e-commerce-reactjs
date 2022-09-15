@@ -6,7 +6,7 @@ import {
 } from "../../utils/firebase.utils";
 import FormInput from "../../components/form-input/FormInput";
 import Button from "../../components/button/Button";
-import { UserContext } from "../../context/user.context"; 
+import { UserContext } from "../../context/user.context";
 
 import "./signin.styles.scss";
 
@@ -16,7 +16,7 @@ function Signin() {
     password: "",
   });
 
-  const { setCurrentUser } = useContext(UserContext)
+  const { setCurrentUser } = useContext(UserContext);
 
   const resetState = () => {
     setState({
@@ -27,7 +27,7 @@ function Signin() {
 
   const signInWithGoogle = async () => {
     const response = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(response.user);
+    createUserDocumentFromAuth(response.user);
   };
 
   const handleSubmit = async (e) => {
@@ -38,7 +38,6 @@ function Signin() {
         state.email,
         state.password
       );
-      setCurrentUser(response.user)
 
       resetState();
       console.log("response :", response);
@@ -92,7 +91,7 @@ function Signin() {
           <Button
             children={"GOOGLE SIGN IN"}
             buttonType="google"
-            type='button'
+            type="button"
             onClick={signInWithGoogle}
           />
         </div>
