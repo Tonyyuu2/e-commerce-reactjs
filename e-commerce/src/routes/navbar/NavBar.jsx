@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { Outlet, Link } from "react-router-dom";
 import "./navbar.styles.scss";
-import { signOutUser } from "../../utils/firebase.utils"; 
+import { signOutUser } from "../../utils/firebase.utils";
+import CartIcon from "../../components/cart-icon/CartIcon"; 
 
 import { UserContext } from "../../context/user.context";
 
@@ -29,6 +30,7 @@ function NavBar() {
               Login
             </Link>
           )}
+          <CartIcon />
         </div>
       </div>
       <Outlet />
