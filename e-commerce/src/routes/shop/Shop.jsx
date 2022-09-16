@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react'
 import ShopItems from './ShopItems'
 import { ProductContext } from '../../context/products.context'
+import './shop.styles.scss'
 
 function Shop() {
 
@@ -15,7 +16,7 @@ function Shop() {
   })
 
   return (
-    <div>
+    <div className='products-container'>
       {shopItems}
     </div>
   )
