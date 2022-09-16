@@ -5,13 +5,6 @@ import NavBar from './routes/navbar/NavBar.jsx'
 import Home from "../src/routes/home/Home.jsx";
 import Auth from './routes/Auth/Auth.jsx';
 
-const Shop = () => {
-  return (
-    <div>Shop</div>
-  )
-}
-
-
 function App() {
   return (
     <Routes>
