@@ -4,6 +4,7 @@ import { Outlet, Link } from "react-router-dom";
 import "./navbar.styles.scss";
 import { signOutUser } from "../../utils/firebase.utils";
 import CartIcon from "../../components/cart-icon/CartIcon"; 
+import CartDropDown from "../../components/cart-dropdown/CartDropDown";
 
 import { UserContext } from "../../context/user.context";
 
@@ -32,6 +33,7 @@ function NavBar() {
           )}
           <CartIcon />
         </div>
+        <CartDropDown />
       </div>
       <Outlet />
     </>
