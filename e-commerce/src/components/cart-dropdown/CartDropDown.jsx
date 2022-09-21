@@ -1,27 +1,40 @@
 import "./cartDropDown.styles.scss";
 import Button from "../button/Button";
 import CartItem from "../cart-item/CartItem";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+
 import { CartContext } from "../../context/cart.context";
-import { useNavigate } from "react-router-dom";
 
 function CartDropDown() {
-  const { cartItems } = useContext(CartContext);
-  const navigate = useNavigate();
+  const { cartItems, setIsCartOpen } = useContext(CartContext);
 
-  const goToCheckoutHandler = () => {
-    navigate('/checkout')
-  }
-
-  const cartItemList = cartItems.map((item) => {
-    return <CartItem key={item.id} cartItem={item} />;
-  });
+  console.log(cartItems)
 
   return (
-    <div className="cart-dropdown-container">
-      <div className="cart-items">{cartItemList}</div>
-      <Button onClick={goToCheckoutHandler}>CHECKOUT</Button>
-    </div>
+    <>
+      <div className="cart-dropdown-container">
+        <header>
+          <h1>Your Shopping Cart</h1>
+        </header>
+        <div id="header-table">
+          <span>Image</span>
+          <span>Product</span>
+          <span>Amount</span>
+          <span>Price</span>
+          <span>Actions</span>
+        </div>
+        <div className="cart-items">
+          {cartItems.map(item => (
+            <CartItem key={item.id} cartItem={item} />
+          ))}
+        </div>
+        <div id="options-down">
+          <Button onClick={() => setIsCartOpen(false)}>CLOSE</Button>
+          <Button>CHECKOUT</Button>
+        </div>
+      </div>
+      <div id="exit" onClick={() => setIsCartOpen(false)} />
+    </>
   );
 }
 

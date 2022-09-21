@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { Outlet, Link } from "react-router-dom";
 import "./navbar.styles.scss";
@@ -12,9 +12,8 @@ import { CartContext } from "../../context/cart.context";
 function NavBar() {
   const { currentUser } = useContext(UserContext);
   console.log("currentUser :", currentUser);
-  const { isCartOpen } = useContext(CartContext);
-
-
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  
   return (
     <>
       <div className="navigation">
