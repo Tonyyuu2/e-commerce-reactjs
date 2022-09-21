@@ -14,6 +14,7 @@ function NavBar() {
   console.log("currentUser :", currentUser);
   const { isCartOpen, setIsCartOpen } = useContext(CartContext);
 
+
   return (
     <>
       <div className="navigation">
