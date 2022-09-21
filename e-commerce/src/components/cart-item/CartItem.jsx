@@ -8,6 +8,7 @@ function CartItem({cartItem}) {
   return (
     <div>
       <h2>{name}</h2>
+      <h2>{quantity}</h2>
     </div>
   )
 }
