@@ -12,7 +12,7 @@ import { CartContext } from "../../context/cart.context";
 function NavBar() {
   const { currentUser } = useContext(UserContext);
   console.log("currentUser :", currentUser);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen } = useContext(CartContext);
 
 
   return (
