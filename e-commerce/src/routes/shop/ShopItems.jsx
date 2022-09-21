@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./shopitems.styles.scss";
 import Button from "../../components/button/Button";
 
