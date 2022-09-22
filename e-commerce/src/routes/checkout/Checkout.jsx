@@ -7,21 +7,36 @@ function Checkout() {
     useContext(CartContext);
 
   return (
-    <div>
-      <div>
+    <div className="checkout-container">
+      <h2>Your Cart</h2>
+      <div className="checkout-header">
+        <div className="header-block">
+          <span>Product</span>
+        </div>
+        <div className="header-block">
+          <span>Description</span>
+        </div>
+        <div className="header-block">
+          <span>Quantity</span>
+        </div>
+        <div className="header-block">
+          <span>Price</span>
+        </div>
+        <div className="header-block">
+          <span>Remove</span>
+        </div>
+      </div>
         {cartItems.map((cartItem) => {
           return (
             <div key={cartItem.id}>
               <h2>{cartItem.name}</h2>
               <span>{cartItem.quantity}</span>
-              <span onClick={() => removeItemToCart(cartItem)}>
-                decrement
-              </span>
+              <span onClick={() => removeItemToCart(cartItem)}>decrement</span>
               <span onClick={() => addItemToCart(cartItem)}>increment</span>
             </div>
           );
         })}
-      </div>
+        <span className="total">Total: 0</span>
     </div>
   );
 }
