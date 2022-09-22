@@ -60,17 +60,20 @@ export const addCollectionAndDocuments = async (
   });
 
   await batch.commit();
-  console.log("---done---");
 };
 
 export const getCategoriesAndDocuments = async () => {
+  //get data from db and make a ref to it 
   const collectionRef = collection(db, "categories");
+  //same as db.query
   const q = query(collectionRef);
-
+  //current snapshot of the specific db table
   const querySnapshot = await getDocs(q);
+  //new array of db where title contains the data
   const categoryMap = querySnapshot.docs.reduce((accumulator, docSnapshot) => {
     const { title, items } = docSnapshot.data();
     accumulator[title.toLowerCase()] = items;
+    return accumulator;
   }, {});
   return categoryMap;
 };
