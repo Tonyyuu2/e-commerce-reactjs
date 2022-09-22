@@ -9,7 +9,8 @@ export const CategoriesContext = createContext({
 });
 
 export const CategoriesProvider = ({ children }) => {
-  const [categories, setCategories] = useState({});
+  const [categoriesMap, setCategoriesMap] = useState({});
+  console.log('categoriesMap :', categoriesMap);
 
   // useEffect(() => {
   //   addCollectionAndDocuments('categories', SHOP_DATA);
@@ -18,11 +19,12 @@ export const CategoriesProvider = ({ children }) => {
   useEffect(() => {
     const getCategoryMap = async () => {
       const categoryMap = await getCategoriesAndDocuments();
+      setCategoriesMap(categoryMap)
     }
     getCategoryMap();
   }, [])
 
-  const value = { categories };
+  const value = { categoriesMap };
 
   return (
     <CategoriesContext.Provider value={value}>
