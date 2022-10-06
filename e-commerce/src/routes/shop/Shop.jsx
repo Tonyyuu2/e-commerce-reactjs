@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useContext } from "react";
-import ShopItems from "./ShopItems";
+import CategoryPreview from "../../components/category-preview/CategoryPreview";
 import { CategoriesContext } from "../../context/categories.context";
 import "./shop.styles.scss";
 
@@ -10,20 +10,14 @@ function Shop() {
   console.log("Object.keys(categoriesMap) :", Object.keys(categoriesMap));
 
   return (
-    <>
+    <div className="shop-container">
       {Object.keys(categoriesMap).map((title) => {
+        const products = categoriesMap[title];
         return (
-          <Fragment key={title}>
-            <h2>{title}</h2>
-            <div className="products-container">
-              {categoriesMap[title].map((product) => {
-                return <ShopItems key={product.id} item={product} />;
-              })}
-            </div>
-          </Fragment>
-        );
+        <CategoryPreview key={title} title={title} products={products}/>
+        )
       })}
-    </>
+    </div>
   );
 }
 
