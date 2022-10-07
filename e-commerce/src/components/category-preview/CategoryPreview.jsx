@@ -12,7 +12,7 @@ function CategoryPreview({ title, products }) {
         {products
           .filter((_, i) => i < 4)
           .map((product) => {
-            return <ShopItems key={product.id} product={product} />;
+            return <ShopItems key={product.id} item={product} />;
           })}
       </div>
     </div>

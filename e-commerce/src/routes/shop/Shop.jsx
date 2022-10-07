@@ -7,7 +7,7 @@ import "./shop.styles.scss";
 function Shop() {
   const { categoriesMap } = useContext(CategoriesContext);
 
-  const cateogryPreivew = Object.keys(categoriesMap).map((title) => {
+  const categoryPreview = Object.keys(categoriesMap).map((title) => {
     const products = categoriesMap[title];
     return (
       <CategoryPreview key={title} title={title} products={products} />
@@ -16,7 +16,7 @@ function Shop() {
 
   return (
     <div className="shop-container">
-      {cateogryPreivew}
+      {categoryPreview}
     </div>
   );
 }
