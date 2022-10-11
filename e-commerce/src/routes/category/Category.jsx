@@ -15,12 +15,15 @@ function Category() {
   }, [category, categoriesMap]);
 
   return (
-    <div className="category-container">
-      {products &&
-        products?.map((product) => (
-          <ShopItems key={product.id} item={product} />
-        ))}
-    </div>
+    <>
+      <h2 className="title">{category.toUpperCase()}</h2>
+      <div className="category-container">
+        {products &&
+          products?.map((product) => (
+            <ShopItems key={product.id} item={product} />
+          ))}
+      </div>
+    </>
   );
 }
 
