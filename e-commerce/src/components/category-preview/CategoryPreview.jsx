@@ -1,6 +1,7 @@
 import React from "react";
 import "./categoryPreview.styles.scss";
 import ShopItems from "../../routes/shop/ShopItems";
+import { Link } from "react-router-dom";
 
 function CategoryPreview({ title, products }) {
   return (

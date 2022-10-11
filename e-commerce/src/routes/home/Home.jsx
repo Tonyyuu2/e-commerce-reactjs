@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import CategoryItem from "../../components/category-item/CategoryItem";
+import DirectoryItem from "../../components/directory-item/DirectoryItem";
 
 function Home() {
   const categories = [
@@ -32,15 +32,15 @@ function Home() {
     },
   ];
 
-  const categoryItem = categories.map((category) => {
-    return <CategoryItem key={category.id} category={category} />;
+  const directoryItem = categories.map((category) => {
+    return <DirectoryItem key={category.id} category={category} />;
   });
 
   return (
     <div>
       <Outlet />
       <div className="categories-container">
-        <div className="categories-container">{categoryItem}</div>
+        <div className="categories-container">{directoryItem}</div>
       </div>
     </div>
   );
