@@ -1,3 +1,8 @@
+import styled from 'styled-components'
+
+
+
+
 .sign-up-container {
   display: flex;
   flex-direction: column;

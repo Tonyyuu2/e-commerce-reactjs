@@ -3,15 +3,15 @@ import React from "react";
 import SignupForm from '../signup/Signup'
 import SigninForm from "../signin/Signin";
 
-import './auth.styles.scss'
+import { AuthenticationContainer } from './auth.styles'
 
 function Auth() {
   
   return (
-    <div className="authentication-container">
+    <AuthenticationContainer>
       <SigninForm />
       <SignupForm />
-    </div>
+    </AuthenticationContainer>
   );
 }
 
