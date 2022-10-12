@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { Outlet, Link } from "react-router-dom";
-import "./navbar.styles.jsx";
+import { NavigationContainer, LogoContainer, NavLink, NavLinks } from "./navbar.styles";
 import { signOutUser } from "../../utils/firebase.utils";
 import CartIcon from "../../components/cart-icon/CartIcon";
 import CartDropDown from "../../components/cart-dropdown/CartDropDown";
@@ -17,27 +17,27 @@ function NavBar() {
 
   return (
     <>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
-          <CrwnLogo className="logo" />
-        </Link>
-        <div className="links-container">
-          <Link className="nav-link" to="/shop">
+      <NavigationContainer >
+        <LogoContainer to="/">
+          <CrwnLogo />
+        </LogoContainer>
+        <NavLinks>
+          <NavLink to="/shop">
             Shop
-          </Link>
+          </NavLink>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutUser}>
+            <NavLink as='span' onClick={signOutUser}>
               {`Hello ${currentUser.email}`} Logout
-            </span>
+            </NavLink>
           ) : (
-            <Link className="nav-link" to="/auth">
+            <NavLink to="/auth">
               Login
-            </Link>
+            </NavLink>
           )}
           <CartIcon />
-        </div>
+        </NavLinks>
         {isCartOpen && <CartDropDown /> }
-      </div>
+      </NavigationContainer>
       <Outlet />
     </>
   );
