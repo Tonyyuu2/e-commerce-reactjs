@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { Outlet, Link } from "react-router-dom";
-import { NavigationContainer, LogoContainer, NavLink, NavLinks } from "./navbar.styles";
+import { NavigationContainer, LogoContainer, NavLink, NavLinksContainer } from "./navbar.styles";
 import { signOutUser } from "../../utils/firebase.utils";
 import CartIcon from "../../components/cart-icon/CartIcon";
 import CartDropDown from "../../components/cart-dropdown/CartDropDown";
@@ -21,7 +21,7 @@ function NavBar() {
         <LogoContainer to="/">
           <CrwnLogo />
         </LogoContainer>
-        <NavLinks>
+        <NavLinksContainer>
           <NavLink to="/shop">
             Shop
           </NavLink>
@@ -35,7 +35,7 @@ function NavBar() {
             </NavLink>
           )}
           <CartIcon />
-        </NavLinks>
+        </NavLinksContainer>
         {isCartOpen && <CartDropDown /> }
       </NavigationContainer>
       <Outlet />

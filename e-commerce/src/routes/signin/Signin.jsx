@@ -7,7 +7,7 @@ import {
 import FormInput from "../../components/form-input/FormInput";
 import Button from "../../components/button/Button";
 
-import "./signin.styles.scss";
+import { SignUpContainer } from './signin.styles'
 
 function Signin() {
   const [state, setState] = useState({
