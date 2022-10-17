@@ -5,9 +5,9 @@ import {
   signInAuthUserWithEmailandPassword,
 } from "../../utils/firebase.utils";
 import FormInput from "../../components/form-input/FormInput";
-import Button from "../../components/button/Button";
+import Button, { BUTTON_TYPE_CLASSES } from "../../components/button/Button";
 
-import { SignUpContainer } from './signin.styles'
+import { SignUpContainer } from "./signin.styles";
 
 function Signin() {
   const [state, setState] = useState({
@@ -24,7 +24,6 @@ function Signin() {
 
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
-  
   };
 
   const handleSubmit = async (e) => {
@@ -84,13 +83,16 @@ function Signin() {
           }}
         />
         <div className="buttons-container">
-          <Button children={"SIGN IN"} type="button" onClick={handleSubmit} />
+          <Button type="submit">
+            Sign In
+          </Button>
           <Button
-            children={"GOOGLE SIGN IN"}
-            buttonType="google"
+            buttonType={BUTTON_TYPE_CLASSES.google}
             type="button"
             onClick={signInWithGoogle}
-          />
+          >
+            Sign In With Google
+        </Button>
         </div>
       </form>
     </div>
