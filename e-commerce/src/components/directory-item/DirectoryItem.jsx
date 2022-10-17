@@ -1,22 +1,29 @@
-import './directoryItem.styles.scss';
+import {
+  Body,
+  DirectoryItemContainer,
+  H2Format,
+  PFormat,
+  BackgroundImage,
+} from "./directoryItem.styles.jsx";
 
-import React from 'react'
+import React from "react";
 
 function DirectoryItem({ category }) {
+  const { id, imageUrl, title } = category;
 
-  const { id, imageUrl, title } = category
-  
   return (
-    <div key={id} className="directory-item-container">
-        <div className="background-image" style={{
-          backgroundImage: `url(${imageUrl})`
-        }} />
-        <div className="body">
-          <h2>{title}</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-  )
+    <  DirectoryItemContainer key={id} >
+      <BackgroundImage
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+        }}
+      />
+      <Body>
+        <H2Format>{title}</H2Format>
+        <PFormat>Shop Now</PFormat>
+      </Body>
+    </DirectoryItemContainer>
+  );
 }
 
-export default DirectoryItem
+export default DirectoryItem;
