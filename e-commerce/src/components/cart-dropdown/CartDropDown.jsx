@@ -18,9 +18,9 @@ function CartDropDown() {
   });
 
   return (
-    <CartDropdownContainer className="cart-dropdown-container">
+    <CartDropdownContainer>
       <CartItems className="cart-items">{cartItemList}</CartItems>
-      <Button onClick={goToCheckoutHandler}>CHECKOUT</Button>
+      <Button style={{ margin: 'auto' }} onClick={goToCheckoutHandler}>CHECKOUT</Button>
     </CartDropdownContainer>
   );
 }
