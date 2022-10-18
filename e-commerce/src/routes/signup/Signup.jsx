@@ -58,7 +58,7 @@ function Signup() {
 
   return (
     <SignUpContainer >
-      <H2Format>No account?</H2Format>
+      <h2>No account?</h2>
       <span>Use what you got...</span>
       <form onSubmit={handleSubmit}>
         <FormInput

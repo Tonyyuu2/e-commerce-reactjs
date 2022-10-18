@@ -1,12 +1,5 @@
 import React, { useContext } from "react";
-import {
-  Footer,
-  ImgTag,
-  Name,
-  Price,
-  ProductCardContainer,
-  ShopButton,
-} from "./shopitems.styles.jsx";
+import { Footer, ProductCardContainer } from "./shopitems.styles.jsx";
 import Button, { BUTTON_TYPE_CLASSES } from "../../components/button/Button";
 import { CartContext } from "../../context/cart.context";
 
@@ -17,14 +10,14 @@ function ShopItems({ item }) {
 
   return (
     <ProductCardContainer>
-      <ImgTag src={item.imageUrl} alt={item.name} />
+      <img src={item.imageUrl} alt={item.name} />
       <Footer>
-        <Name>{item.name}</Name>
-        <Price>{item.price}</Price>
+        <span className="name">{item.name}</span>
+        <span className="price">{item.price}</span>
       </Footer>
-      <ShopButton onClick={addToCart} buttonType={BUTTON_TYPE_CLASSES.inverted}>
+      <Button onClick={addToCart} buttonType={BUTTON_TYPE_CLASSES.inverted}>
         Add to cart
-      </ShopButton>
+      </Button>
     </ProductCardContainer>
   );
 }

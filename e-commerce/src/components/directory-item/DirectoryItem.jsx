@@ -1,8 +1,6 @@
 import {
   Body,
   DirectoryItemContainer,
-  H2Format,
-  PFormat,
   BackgroundImage,
 } from "./directoryItem.styles.jsx";
 
@@ -19,8 +17,8 @@ function DirectoryItem({ category }) {
         }}
       />
       <Body>
-        <H2Format>{title}</H2Format>
-        <PFormat>Shop Now</PFormat>
+        <h2>{title}</h2>
+        <p>Shop Now</p>
       </Body>
     </DirectoryItemContainer>
   );

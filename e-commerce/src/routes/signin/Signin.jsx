@@ -7,7 +7,7 @@ import {
 import FormInput from "../../components/form-input/FormInput";
 import Button, { BUTTON_TYPE_CLASSES } from "../../components/button/Button";
 
-import { SignUpContainer } from "./signin.styles";
+import { SignUpContainer, ButtonsContainer } from "./signin.styles";
 
 function Signin() {
   const [state, setState] = useState({
@@ -57,7 +57,7 @@ function Signin() {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignUpContainer>
       <h2>Already have an account?</h2>
       <span>Please tell me more...</span>
       <form onSubmit={handleSubmit}>
@@ -83,19 +83,17 @@ function Signin() {
           }}
         />
         <div className="buttons-container">
-          <Button type="submit">
-            Sign In
-          </Button>
+          <Button type="submit">Sign In</Button>
           <Button
             buttonType={BUTTON_TYPE_CLASSES.google}
             type="button"
             onClick={signInWithGoogle}
           >
-            Sign In With Google
-        </Button>
+            Google Sign In
+          </Button>
         </div>
       </form>
-    </div>
+    </SignUpContainer>
   );
 }
 

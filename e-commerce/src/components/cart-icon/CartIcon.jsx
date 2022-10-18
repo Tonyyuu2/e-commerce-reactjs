@@ -13,11 +13,8 @@ function CartIcon() {
 
   return (
     <CartIconContainer onClick={toggle}>
-      <ShoppingIcon
-        style={{ width: "24px", height: "24px" }}
-        className="shopping-icon"
-      />
-      <ItemCount className="item-count">{cartCount}</ItemCount>
+      <ShoppingIcon style={{ width: "24px", height: "24px" }} />
+      <ItemCount>{cartCount}</ItemCount>
     </CartIconContainer>
   );
 }

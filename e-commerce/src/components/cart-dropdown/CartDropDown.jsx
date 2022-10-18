@@ -22,7 +22,7 @@ function CartDropDown() {
       <CartItems className="cart-items">
         {cartItems.length ? { cartItemList } : <EmptyMessage>Your cart is empty!</EmptyMessage>}
       </CartItems>
-      <Button style={{ margin: "auto" }} onClick={goToCheckoutHandler}>
+      <Button onClick={goToCheckoutHandler}>
         CHECKOUT
       </Button>
     </CartDropdownContainer>
