@@ -19,7 +19,7 @@ function CartDropDown() {
 
   return (
     <CartDropdownContainer>
-      <CartItems className="cart-items">
+      <CartItems>
         {cartItems.length ? { cartItemList } : <EmptyMessage>Your cart is empty!</EmptyMessage>}
       </CartItems>
       <Button onClick={goToCheckoutHandler}>
