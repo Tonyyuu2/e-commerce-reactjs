@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 
 import DirectoryItem from "../../components/directory-item/DirectoryItem";
 
+import { HomeFormat } from './home.styles'
+
 function Home() {
   const categories = [
     {
@@ -37,10 +39,10 @@ function Home() {
   });
 
   return (
-    <div>
+    <HomeFormat>
       {directoryItem}
       <Outlet />
-    </div>
+    </HomeFormat>
   );
 }
 
