@@ -1,4 +1,4 @@
-import { CartDropdownContainer, CartItems } from "./cartDropDown.styles.jsx";
+import { CartDropdownContainer, CartItems, EmptyMessage } from "./cartDropDown.styles.jsx";
 import Button from "../button/Button";
 import CartItem from "../cart-item/CartItem";
 import { useContext } from "react";
@@ -19,8 +19,12 @@ function CartDropDown() {
 
   return (
     <CartDropdownContainer>
-      <CartItems className="cart-items">{cartItemList}</CartItems>
-      <Button style={{ margin: 'auto' }} onClick={goToCheckoutHandler}>CHECKOUT</Button>
+      <CartItems className="cart-items">
+        {cartItems.length ? { cartItemList } : <EmptyMessage>Your cart is empty!</EmptyMessage>}
+      </CartItems>
+      <Button style={{ margin: "auto" }} onClick={goToCheckoutHandler}>
+        CHECKOUT
+      </Button>
     </CartDropdownContainer>
   );
 }

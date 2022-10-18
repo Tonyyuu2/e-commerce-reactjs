@@ -38,10 +38,8 @@ function Home() {
 
   return (
     <div>
+      {directoryItem}
       <Outlet />
-      <div className="categories-container">
-        <div className="categories-container">{directoryItem}</div>
-      </div>
     </div>
   );
 }

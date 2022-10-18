@@ -1,5 +1,12 @@
 import React, { useContext } from "react";
-import "./shopitems.styles.scss";
+import {
+  Footer,
+  ImgTag,
+  Name,
+  Price,
+  ProductCardContainer,
+  ShopButton,
+} from "./shopitems.styles.jsx";
 import Button, { BUTTON_TYPE_CLASSES } from "../../components/button/Button";
 import { CartContext } from "../../context/cart.context";
 
@@ -9,16 +16,16 @@ function ShopItems({ item }) {
   const addToCart = () => addItemToCart(item);
 
   return (
-    <div className="product-card-container">
-      <img src={item.imageUrl} alt={item.name} />
-      <div className="footer">
-        <span className="name">{item.name}</span>
-        <span className="price">{item.price}</span>
-      </div>
-      <Button onClick={addToCart} buttonType={BUTTON_TYPE_CLASSES.inverted}>
+    <ProductCardContainer>
+      <ImgTag src={item.imageUrl} alt={item.name} />
+      <Footer>
+        <Name>{item.name}</Name>
+        <Price>{item.price}</Price>
+      </Footer>
+      <ShopButton onClick={addToCart} buttonType={BUTTON_TYPE_CLASSES.inverted}>
         Add to cart
-      </Button>
-    </div>
+      </ShopButton>
+    </ProductCardContainer>
   );
 }
 

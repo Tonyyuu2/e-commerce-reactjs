@@ -6,7 +6,7 @@ import {
 import FormInput from "../../components/form-input/FormInput";
 import Button from "../../components/button/Button";
 
-import "./signup.styles.scss";
+import {H2Format, SignUpContainer} from "./signup.styles.jsx";
 
 function Signup() {
   const [state, setState] = useState({
@@ -57,8 +57,8 @@ function Signup() {
   };
 
   return (
-    <div className="sign-up-container">
-      <h2>No account?</h2>
+    <SignUpContainer >
+      <H2Format>No account?</H2Format>
       <span>Use what you got...</span>
       <form onSubmit={handleSubmit}>
         <FormInput
@@ -109,7 +109,7 @@ function Signup() {
           type="submit" 
         />
       </form>
-    </div>
+    </SignUpContainer>
   );
 }
 
